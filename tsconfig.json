@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2016", // Target ES2016 (which is ES7)
+    "module": "commonjs", // Use commonjs modules
+    "outDir": "./dist", // Output directory for compiled files
+    "rootDir": "./src", // Specify the root directory of your source files
+    "strict": true, // Enable strict type checking
+    "esModuleInterop": true // Enable compatibility with ES module imports
+  },
+  "include": [
+    "src/**/*"
+  ], // Include all .ts files in the src directory
+  "exclude": [
+    "node_modules"
+  ] // Exclude the node_modules directory
+}
