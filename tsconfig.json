@@ -5,7 +5,9 @@
     "outDir": "./dist", // Output directory for compiled files
     "rootDir": "./src", // Specify the root directory of your source files
     "strict": true, // Enable strict type checking
-    "esModuleInterop": true // Enable compatibility with ES module imports
+    "esModuleInterop": true, // Enable compatibility with ES module imports
+    "experimentalDecorators": true,
+    "resolveJsonModule": true
   },
   "include": [
     "src/**/*"

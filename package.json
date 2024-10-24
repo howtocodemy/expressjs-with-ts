@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "dev": "npm run generate-spec && npm run generate-routes && ts-node-dev --respawn --transpile-only src/app.ts",
+    "generate-routes": "npx tsoa routes",
+    "generate-spec": "npx tsoa spec",
     "build": "tsc"
   },
   "author": "",

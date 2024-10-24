@@ -1,30 +1,17 @@
-import express, { Request, Response, NextFunction } from 'express';
-import indexRouter from './routes/index';
-import usersRouter from './routes/users';
-import asyncUsersRouter from './routes/async_users';
+import express, { urlencoded, json } from 'express';
+import { RegisterRoutes } from './routes/routes';
+
+import swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './swagger/swagger.json'; // Import generated Swagger spec
 
 // Create an instance of Express
 const app = express();
-
+app.use(urlencoded({ extended: true, }));
 // Middleware to parse JSON requests
-app.use(express.json());
+app.use(json());
+RegisterRoutes(app);
 
-// // Use your routes
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-// app.use('/async-users', asyncUsersRouter);
-
-
-// // Error handling middleware
-// app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-//     console.error(err.stack);
-//     res.status(500).send('Something broke!');
-// });
-
-// Define a simple GET route
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, World!');
-});
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Start the server and listen on port 3000
 const PORT = process.env.PORT || 3000;
